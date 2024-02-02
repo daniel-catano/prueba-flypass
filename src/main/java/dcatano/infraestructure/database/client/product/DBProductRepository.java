@@ -5,5 +5,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface DBProductRepository extends CrudRepository<DBProduct, Long> {
-	DBProduct findTopOneByDesc();
+	DBProduct findTopOneByOrderByIdDesc();
 }

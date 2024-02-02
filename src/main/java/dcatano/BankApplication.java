@@ -1,13 +1,13 @@
-package dcatano.test_bd;
+package dcatano;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class TestBdApplication {
+public class BankApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(TestBdApplication.class, args);
+		SpringApplication.run(BankApplication.class, args);
 	}
 
 }

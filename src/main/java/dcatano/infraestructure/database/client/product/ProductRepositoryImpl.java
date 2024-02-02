@@ -13,6 +13,6 @@ public class ProductRepositoryImpl implements ProductRepository {
 	private final DBProductRepository dbProductRepository;
 	@Override
 	public Optional<Product> findLast() {
-		return Optional.ofNullable(dbProductRepository.findTopOneByDesc()).map(DBProduct::toDomain);
+		return Optional.ofNullable(dbProductRepository.findTopOneByOrderByIdDesc()).map(DBProduct::toDomain);
 	}
 }

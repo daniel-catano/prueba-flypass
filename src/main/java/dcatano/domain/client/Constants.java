@@ -10,6 +10,7 @@ public class Constants {
 	public static final int ACCOUNT_NUMBER_LENGTH_WITHOUT_PREFIX = 8;
 	public static final int MAX_ACCOUNT_LENGTH = 10;
 	public static final String LENGTH_EXCEED_MESSAGE = "No se puede crear un número de cuenta con más de 10 dígitos";
+	public static final String CLIENT_CREATED = "Cliente creado";
 
 	private Constants(){}
 	public static final int UNDER_AGE = 18;

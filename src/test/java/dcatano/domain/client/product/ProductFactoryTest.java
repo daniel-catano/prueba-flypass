@@ -1,5 +1,6 @@
 package dcatano.domain.client.product;
 
+import dcatano.exception.LenghExceededException;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
@@ -21,12 +22,12 @@ class ProductFactoryTest {
 	@Test
 	void shouldCreateACurrentAccount() throws LenghExceededException {
 		Mockito.when(accountNumberCreator.createAccountNumber(Mockito.any(ProductType.class))).thenReturn("23111111");
-		assertEquals(ProductType.CURRENT_ACCOUNT, productFactory.createCurrentAccount(1L, BigDecimal.TEN, true).getProductType());
+		assertEquals(ProductType.CURRENT_ACCOUNT, productFactory.createCurrentAccount(BigDecimal.TEN, true).getProductType());
 	}
 
 	@Test
 	void shouldThrowOnLimitExceeded() throws LenghExceededException {
 		Mockito.when(accountNumberCreator.createAccountNumber(Mockito.any(ProductType.class))).thenReturn("23444444444");
-		assertThrows(LenghExceededException.class, () -> productFactory.createCurrentAccount(1L, BigDecimal.TEN, true));
+		assertThrows(LenghExceededException.class, () -> productFactory.createCurrentAccount(BigDecimal.TEN, true));
 	}
 }

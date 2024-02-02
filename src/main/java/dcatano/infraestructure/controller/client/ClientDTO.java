@@ -15,6 +15,7 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ClientDTO {
+	private Long id;
 	private IdentificationType type;
 	private String number;
 	private String names;
@@ -24,6 +25,7 @@ public class ClientDTO {
 
 	public static ClientDTO fromDomain(Client client) {
 		return new ClientDTO(
+			client.getId(),
 			client.getIdentification().getType(),
 			client.getIdentification().getNumber(),
 			client.getNames(),

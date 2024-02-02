@@ -1,6 +1,7 @@
 package dcatano.domain.client.product;
 
 import dcatano.domain.client.Constants;
+import dcatano.exception.LenghExceededException;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 
@@ -11,9 +12,9 @@ import java.util.Date;
 @AllArgsConstructor
 public class ProductFactory {
 	private final AccountNumberCreator accountNumberCreator;
-	public Product createSavingAccount(Long id, BigDecimal balance, boolean gfmExcept) throws LenghExceededException {
+	public Product createSavingAccount(BigDecimal balance, boolean gfmExcept) throws LenghExceededException {
 		return new Product(
-			id,
+			null,
 			ProductType.SAVING_ACCOUNT,
 			createAccountNumber(ProductType.SAVING_ACCOUNT),
 			balance,
@@ -22,9 +23,9 @@ public class ProductFactory {
 		);
 	}
 
-	public Product createCurrentAccount(Long id, BigDecimal balance, boolean gfmExcept) throws LenghExceededException {
+	public Product createCurrentAccount(BigDecimal balance, boolean gfmExcept) throws LenghExceededException {
 		return new Product(
-			id,
+			null,
 			ProductType.CURRENT_ACCOUNT,
 			createAccountNumber(ProductType.CURRENT_ACCOUNT),
 			balance,

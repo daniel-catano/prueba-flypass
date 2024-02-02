@@ -1,4 +1,4 @@
-package dcatano.domain.client.product;
+package dcatano.exception;
 
 import dcatano.domain.client.Constants;
 

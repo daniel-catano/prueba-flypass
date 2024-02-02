@@ -11,6 +11,8 @@ public class Constants {
 	public static final int MAX_ACCOUNT_LENGTH = 10;
 	public static final String LENGTH_EXCEED_MESSAGE = "No se puede crear un número de cuenta con más de 10 dígitos";
 	public static final String CLIENT_CREATED = "Cliente creado";
+	public static final String PRODUCT_CREATED = "Producto creado";
+	public static final String NO_DATA_FOUND = "No se han encontrado datos.";
 
 	private Constants(){}
 	public static final int UNDER_AGE = 18;

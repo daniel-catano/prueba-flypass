@@ -1,4 +1,4 @@
-package dcatano.domain;
+package dcatano.domain.client;
 
 import dcatano.domain.client.Client;
 import dcatano.domain.client.Constants;

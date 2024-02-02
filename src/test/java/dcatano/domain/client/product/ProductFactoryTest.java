@@ -16,7 +16,7 @@ class ProductFactoryTest {
 	@Test
 	void shouldCreateASavingAccount() throws LenghExceededException {
 		Mockito.when(accountNumberCreator.createAccountNumber(Mockito.any(ProductType.class))).thenReturn("23111111");
-		assertEquals(ProductType.SAVING_ACCOUNT, productFactory.createSavingAccount(1L, BigDecimal.TEN, true).getProductType());
+		assertEquals(ProductType.SAVING_ACCOUNT, productFactory.createSavingAccount(BigDecimal.TEN, true).getProductType());
 	}
 
 	@Test

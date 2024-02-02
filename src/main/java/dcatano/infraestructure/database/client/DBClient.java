@@ -10,7 +10,7 @@ import lombok.Setter;
 
 import java.util.Date;
 
-@Entity
+@Entity(name = "client")
 @Getter
 @Setter
 public class DBClient {

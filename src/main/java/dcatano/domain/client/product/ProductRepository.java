@@ -1,9 +1,10 @@
 package dcatano.domain.client.product;
 
-import dcatano.domain.client.Client;
+import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
+@Repository
 public interface ProductRepository {
-	Optional<Client> findLast();
+	Optional<Product> findLast();
 }

@@ -1,0 +1,14 @@
+<app-empty-list *ngIf="!loading && !products.length"></app-empty-list>
+<mat-list *ngIf="products.length">
+  <mat-list-item *ngFor="let product of products" infinite-scroll [infiniteScrollDistance]="0.5" (scrolled)="onScroll()">
+    <mat-icon matListItemIcon>receipt_long</mat-icon>
+    <div>
+      <div class="text-wrap" matListItemLine><b>Cuenta:</b>{{product.accountNumber}}</div>
+      <div class="text-wrap" matListItemLine><b>Estado:</b>{{product.status}}</div>
+      <div class="text-wrap" matListItemLine><b>Saldo: </b>{{product.balance | currency: 'COP':'$':'1.0-0'}}</div>
+      <div *ngIf="product.gfmExempt" class="text-wrap" class="red" matListItemLine><b>Excento de GFM: </b></div>
+    </div>
+    <app-icon icon="chevron_right" [material]="true"></app-icon>
+  </mat-list-item>
+</mat-list>
+<app-ghost-list *ngIf="loading" [ghosts]="3" [material]="true" icon="receipt_long"></app-ghost-list>

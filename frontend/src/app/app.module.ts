@@ -11,11 +11,13 @@ import {MatIconModule} from "@angular/material/icon";
 import {MatListModule} from "@angular/material/list";
 import {InfiniteScrollModule} from "ngx-infinite-scroll";
 import {HttpClient, HttpClientModule} from "@angular/common/http";
+import { ProductListComponent } from './product-list/product-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ClientListComponent
+    ClientListComponent,
+    ProductListComponent
   ],
   imports: [
     BrowserModule,

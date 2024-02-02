@@ -27,7 +27,7 @@ export class ClientListComponent implements OnInit{
 
   goToProducts(clientId: number) {
     const transactionDetailRoutingParams: ClientRoutingParams = {clientId};
-    this.router.navigate(['product'], {state: transactionDetailRoutingParams, relativeTo: this.activatedRoute}).then();
+    this.router.navigate(['/product'], {state: transactionDetailRoutingParams}).then();
   }
 
   onScroll() {

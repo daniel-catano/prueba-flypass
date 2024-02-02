@@ -1,0 +1,23 @@
+.fab
+  display: flex
+  align-items: flex-end
+  justify-content: right
+  position: fixed
+  bottom: calc(50px)
+  right: 2%
+  @media (min-width: 1024px)
+    right: 6%
+  @media (min-width: 1440px)
+    right: 15%
+  button
+    z-index: 2000
+    div
+      width: 100%
+      display: flex
+      align-items: center
+      text-transform: uppercase
+      font-weight: bold
+      .fab-text
+        display: none
+        @media (min-width: 768px)
+          display: block

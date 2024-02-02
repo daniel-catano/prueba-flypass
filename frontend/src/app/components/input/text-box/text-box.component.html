@@ -1,0 +1,15 @@
+<div [formGroup]="form">
+  <mat-form-field appearance="fill" color="accent">
+    <mat-label>{{control.label}}</mat-label>
+    <mat-icon *ngIf="control.icon" matPrefix>{{control.icon}}</mat-icon>
+    <input [id]="control.key" [type]="getType()" matInput [formControlName]="control.key" [errorStateMatcher]="matcher" [value]="control.value">
+    <button type="button" *ngIf="control.type === 'password'" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Ocultar contraseña'" [attr.aria-pressed]="hide">
+      <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+    </button>
+    <div class="error-wrapper" *ngFor="let validation of control.validations">
+      <mat-error *ngIf="(form.controls[control.key].touched || form.controls[control.key].dirty) && form.controls[control.key].hasError(validation.name)">
+        {{ validation.message }}
+      </mat-error>
+    </div>
+  </mat-form-field>
+</div>

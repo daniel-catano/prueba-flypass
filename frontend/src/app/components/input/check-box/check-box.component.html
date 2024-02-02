@@ -1,0 +1,8 @@
+<section [formGroup]="form">
+  <mat-checkbox [formControlName]="control.key" [checked]="control.checked">{{control.label}}</mat-checkbox>
+  <div class="error-wrapper" *ngFor="let validation of control.validations">
+    <mat-error *ngIf="(form.controls[control.key].touched || form.controls[control.key].dirty) && form.controls[control.key].hasError(validation.name)">
+      {{ validation.message }}
+    </mat-error>
+  </div>
+</section>

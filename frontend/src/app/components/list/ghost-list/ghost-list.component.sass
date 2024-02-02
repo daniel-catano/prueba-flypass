@@ -1,0 +1,39 @@
+@use "../../../utils/animations/ghost-animation" as animation
+$ghost-row-gap: 4px
+$avatar-gap: 5em
+.user
+  overflow: hidden
+  display: flex
+  padding-bottom: 8px
+  margin-bottom: 8px
+  .avatar
+    float: left
+    width: 50px
+    height: 50px
+    border: solid 2px rgb(212, 212, 212)
+    border-radius: 50%
+    background: white url("../../../../assets/images/silohuette.svg")
+    background-size: 50px 50px
+    margin-left: 27px
+    overflow: hidden
+  .lines
+    width: calc(100% - $avatar-gap)
+    h2, h3, p
+      background-color: gray
+      margin-bottom: 8px
+      @include animation.background-gradient
+      @include animation.animate-ghost-line
+    h2
+      height: 20px
+      width: 50%
+    h3
+      height: 16px
+      width: 80%
+    p
+      height: 16px
+      width: 80%
+  app-icon
+    color: rgba(0, 0, 0, 0.38)
+    width: $avatar-gap
+    display: flex
+    justify-content: center

@@ -1,0 +1,14 @@
+<div [formGroup]="form">
+  <mat-form-field >
+    <mat-label>{{control.label}}</mat-label>
+    <input matInput [matDatepicker]="picker" [formControlName]="control.key">
+    <mat-hint>MM/DD/YYYY</mat-hint>
+    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker ></mat-datepicker>
+    <div class="error-wrapper" *ngFor="let validation of control.validations">
+      <mat-error *ngIf="(form.controls[control.key].touched || form.controls[control.key].dirty) && form.controls[control.key].hasError(validation.name)">
+        {{ validation.message }}
+      </mat-error>
+    </div>
+  </mat-form-field>
+</div>

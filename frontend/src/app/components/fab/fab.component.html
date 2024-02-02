@@ -1,0 +1,10 @@
+<div class="fab">
+  <button mat-fab extended color="primary" (click)="onClick()">
+    <div>
+      <app-icon *ngIf="icon" [material]="material" [icon]="icon"></app-icon>
+      <span class="fab-text">{{text}}</span>
+    </div>
+  </button>
+</div>
+
+

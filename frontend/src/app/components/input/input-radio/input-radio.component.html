@@ -1,0 +1,13 @@
+<div [formGroup]="form">
+  <label>{{control.label}}</label>
+  <mat-radio-group [formControlName]="control.key">
+    <mat-radio-button *ngFor="let option of control.options" [value]="option.key">
+      {{option.value}}
+    </mat-radio-button>
+    <div class="error-wrapper" *ngFor="let validation of control.validations">
+      <mat-error *ngIf="(form.controls[control.key].touched || form.controls[control.key].dirty) && form.controls[control.key].hasError(validation.name)">
+        {{ validation.message }}
+      </mat-error>
+    </div>
+  </mat-radio-group>
+</div>

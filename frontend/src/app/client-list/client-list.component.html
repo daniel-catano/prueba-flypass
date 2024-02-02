@@ -1,1 +1,13 @@
-<p>client-list works!</p>
+<app-empty-list *ngIf="!loading && !clients.length"></app-empty-list>
+<mat-list *ngIf="clients.length">
+  <mat-list-item *ngFor="let client of clients" (click)="goToProducts(client.id)" infinite-scroll [infiniteScrollDistance]="0.5" (scrolled)="onScroll()">
+    <mat-icon matListItemIcon>receipt_long</mat-icon>
+    <div>
+      <div class="text-wrap" matListItemLine><b>Nombre:</b>{{client.names}} {{client.lastNames}}</div>
+      <div class="text-wrap" matListItemLine><b>Correo:</b>{{client.names}} {{client.email}}</div>
+      <div class="text-wrap" matListItemLine><b>Fecha de nacimiento:</b>{{client.birthdate | date: 'dd MMMM, y, hh:mm a'}}</div>
+    </div>
+    <app-icon icon="chevron_right" [material]="true"></app-icon>
+  </mat-list-item>
+</mat-list>
+<app-ghost-list *ngIf="loading" [ghosts]="3" [material]="true" icon="receipt_long"></app-ghost-list>

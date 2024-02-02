@@ -1,0 +1,55 @@
+$mobile-height: 80px
+header
+  position: relative
+  height: $mobile-height
+  &.extended
+    $mobile-height: 150px
+    height: $mobile-height
+    &:before
+      height: $mobile-height
+  &:before
+    position: absolute
+    content: ''
+    width: 100%
+    height: $mobile-height
+    left: 0
+    background-image: linear-gradient(90deg, #41FA9B, #1AE07A)
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 56%, 0 100%)
+    clip-path: polygon(0 0, 100% 0, 100% 74%, 0 100%)
+    z-index: -1
+.sub-header-content
+  height: 100%
+  display: flex
+  flex-direction: column
+  align-items: center
+  padding-top: 16px
+  text-align: center
+  max-width: 900px
+  margin: 0 auto
+@media (min-width: 768px)
+  .sub-header-content
+    align-items: start
+    justify-content: center
+    padding: 0
+    text-align: left
+    padding-left: 2em
+@media (min-width: 1440px)
+  .sub-header-content
+    max-width: 1000px
+@media (min-width: 2560px)
+  $mobile-height: 180px
+  header
+    height: $mobile-height
+    &:before
+      position: absolute
+      content: ''
+      width: 100%
+      height: $mobile-height
+    &.extended
+      $mobile-height: 270px
+      height: $mobile-height
+      &:before
+        height: $mobile-height
+
+  .sub-header-content
+    max-width: 2000px

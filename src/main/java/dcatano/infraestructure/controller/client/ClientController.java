@@ -7,6 +7,7 @@ import dcatano.domain.client.Constants;
 import dcatano.domain.client.Validation;
 import dcatano.domain.client.product.Product;
 import dcatano.domain.client.product.ProductFactory;
+import dcatano.domain.client.product.ProductFinder;
 import dcatano.domain.client.product.ProductRepository;
 import dcatano.exception.LenghExceededException;
 import dcatano.exception.NoDataFoundException;
@@ -32,6 +33,7 @@ public class ClientController {
 	private final ClientFinder clientFinder;
 	private final ProductFactory productFactory;
 	private final ProductRepository productRepository;
+	private final ProductFinder productFinder;
 
 	@PostMapping()
 	public ResponseEntity<Response> createClient(@RequestBody ClientDTO client) {
@@ -61,5 +63,15 @@ public class ClientController {
 		Product product = productFactory.createSavingAccount(productDTO.getBalance(), productDTO.isGfmExcept());
 		productRepository.save(product, Long.parseLong(clientId));
 		return ResponseEntity.status(HttpStatus.CREATED).body(new Response(Constants.PRODUCT_CREATED));
+	}
+
+	@GetMapping("/{client_id}/products")
+	public ResponseEntity<PaginatedResponse<Product>> listProducts(
+			@PathVariable(name = "client_id") Long clientId,
+			@RequestParam(defaultValue = "20") Integer pageSize,
+			@RequestParam(defaultValue = "0") Integer page
+	) {
+		DBPage<Product> clientPage = productFinder.find(pageSize, page, clientId);
+		return ResponseEntity.ok(new PaginatedResponse<>(clientPage.getResults(), clientPage.getTotalPages()));
 	}
 }
